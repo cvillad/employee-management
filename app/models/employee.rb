@@ -6,4 +6,15 @@ class Employee < ApplicationRecord
   validates :email, uniqueness: { case_sensitive: false },
                     length: { maximum: 40 },
                     format: { with: URI::MailTo::EMAIL_REGEXP }
+
+  def self.from_csv(file)
+    items = []
+    CSV.foreach(file.path, headers: true) do |row|
+      puts row
+      items << row.to_h
+    end
+    puts items
+    import(items)
+  end 
+
 end

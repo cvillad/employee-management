@@ -30,8 +30,12 @@
       <% end %>
     </tbody>
   </table>
-
   <br>
-
-  <%= link_to 'New Employee', new_employee_path, class: "btn btn-success" %>
+  <%= form_tag import_employees_path, multipart: true do %>
+    <%= file_field_tag :file, class: "form-control-file" %>
+    <%= submit_tag "Upload" %>
+  <% end %>
+  <%= link_to 'Download CSV list', employees_path(format: :csv) %>
+  <br/>
+  <%= link_to 'New Employee', new_employee_path, class: "btn btn-success mt-3" %>
 </div>

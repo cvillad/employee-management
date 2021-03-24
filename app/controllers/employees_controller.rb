@@ -3,7 +3,19 @@ class EmployeesController < ApplicationController
 
   # GET /employees or /employees.json
   def index
-    @employees = Employee.all
+    @employees = Employee.all.select(:id, :first_name, :last_name, :email, :phone, :salary, :area)
+    #@import = Employee::Import.new 
+
+  end
+
+  def import
+    begin
+      Employee.from_csv(params[:file])
+    rescue => e
+      puts e.message
+      flash[:alert] = "There was a problem with your file or your file records."
+    end
+    redirect_to employees_path
   end
 
   # GET /employees/1 or /employees/1.json
