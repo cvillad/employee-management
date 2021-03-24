@@ -1,34 +1,40 @@
-<p id="notice"><%= notice %></p>
+<div class="row justify-content-center align-items-center mt-5">
+  <div class="col-5">
+    <p id="notice"><%= notice %></p>
+    <div class="card text-center">
+      <div class="card-body">
+        <p>
+          <strong>First name:</strong>
+          <%= @employee.first_name %>
+        </p>
 
-<p>
-  <strong>First name:</strong>
-  <%= @employee.first_name %>
-</p>
+        <p>
+          <strong>Last name:</strong>
+          <%= @employee.last_name %>
+        </p>
 
-<p>
-  <strong>Last name:</strong>
-  <%= @employee.last_name %>
-</p>
+        <p>
+          <strong>Phone:</strong>
+          <%= @employee.phone %>
+        </p>
 
-<p>
-  <strong>Phone:</strong>
-  <%= @employee.phone %>
-</p>
+        <p>
+          <strong>Email:</strong>
+          <%= @employee.email %>
+        </p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @employee.email %>
-</p>
+        <p>
+          <strong>Salary:</strong>
+          <%= @employee.salary %>
+        </p>
 
-<p>
-  <strong>Salary:</strong>
-  <%= @employee.salary %>
-</p>
-
-<p>
-  <strong>Area:</strong>
-  <%= @employee.area %>
-</p>
-
-<%= link_to 'Edit', edit_employee_path(@employee) %> |
-<%= link_to 'Back', employees_path %>
+        <p>
+          <strong>Area:</strong>
+          <%= @employee.area %>
+        </p>
+      </div>
+    </div>
+    <%= link_to 'Edit', edit_employee_path(@employee) %> |
+    <%= link_to 'Back', employees_path %>
+  </div>
+</div>
