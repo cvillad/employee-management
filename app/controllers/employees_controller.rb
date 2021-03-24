@@ -23,7 +23,6 @@ class EmployeesController < ApplicationController
   def create
     @employee = Employee.new(employee_params.except(:area))
     @employee.area = employee_params[:area].to_i
-    byebug
     respond_to do |format|
       if @employee.save
         format.html { redirect_to @employee, notice: "Employee was successfully created." }

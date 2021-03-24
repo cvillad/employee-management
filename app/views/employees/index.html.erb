@@ -21,8 +21,8 @@
           <td><%= employee.last_name %></td>
           <td><%= employee.phone %></td>
           <td><%= employee.email %></td>
-          <td><%= employee.salary %></td>
-          <td><%= employee.area %></td>
+          <td><%= number_to_currency(employee.salary, separator: ",", delimiter: ".") %></td>
+          <td><%= employee.area.capitalize %></td>
           <td><%= link_to 'Show', employee %></td>
           <td><%= link_to 'Edit', edit_employee_path(employee) %></td>
           <td><%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
