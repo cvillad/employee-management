@@ -15,7 +15,7 @@
 
         <p>
           <strong>Phone:</strong>
-          <%= @employee.phone %>
+          <%= number_to_phone(@employee.phone, area_code: true) %>
         </p>
 
         <p>

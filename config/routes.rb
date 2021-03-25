@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root to: "employees#index"
   resources :employees do
     collection do 
       post :import
