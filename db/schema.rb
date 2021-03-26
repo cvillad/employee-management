@@ -16,12 +16,12 @@ ActiveRecord::Schema.define(version: 2021_03_23_210416) do
   enable_extension "plpgsql"
 
   create_table "employees", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
+    t.string "first_name", null: false
+    t.string "last_name", null: false
     t.string "phone"
-    t.string "email"
-    t.float "salary"
-    t.integer "area"
+    t.string "email", null: false
+    t.float "salary", null: false
+    t.integer "area", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

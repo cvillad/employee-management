@@ -5,7 +5,10 @@ class EmployeesController < ApplicationController
   def index
     @employees = Employee.all.select(:id, :first_name, :last_name, :email, :phone, :salary, :area)
     #@import = Employee::Import.new 
-
+    respond_to do |format|
+      format.html
+      format.csv { send_data @employees.to_csv, filename: "users-#{Date.today}.csv" }
+    end
   end
 
   def import
