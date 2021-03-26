@@ -37,7 +37,8 @@
 
   <div class="form-group">
     <%= form.label :area %>
-    <%= form.select :area, options_for_select(EmployeeArea.options), {include_blank: "Area"}, required: true, class: "form-control" %>
+    <%= form.select :area, options_for_select(EmployeeArea.options, EmployeeArea::AREAS.index(employee.area)), 
+        {include_blank: "Area"}, required: true, class: "form-control" %>
   </div>
 
   <div class="actions">
