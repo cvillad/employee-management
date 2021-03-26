@@ -7,7 +7,7 @@ class EmployeesController < ApplicationController
     #@import = Employee::Import.new 
     respond_to do |format|
       format.html
-      format.csv { send_data @employees.to_csv, filename: "users-#{Date.today}.csv" }
+      format.csv { send_data @employees.to_csv, filename: "employees-#{Date.today}.csv" }
     end
   end
 
