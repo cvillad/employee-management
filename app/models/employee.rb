@@ -3,7 +3,7 @@ class Employee < ApplicationRecord
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :salary, numericality: {greater_than: 0}
-  validates :phone, numericality: {greater_than: 0}, length: { is: 10 }, 
+  validates :phone, numericality: {greater_than: 0}, length: { is: 10 }
   validates :email, uniqueness: { case_sensitive: false },
                     length: { maximum: 40 },
                     format: { with: URI::MailTo::EMAIL_REGEXP }
