@@ -13,11 +13,9 @@ class Employee < ApplicationRecord
   def self.from_csv(file)
     items = []
     CSV.foreach(file.path, headers: true) do |row|
-      puts row
       items << row.to_h
     end
-    puts items
-    import(items, validate: true)
+    import(items, validate: true, validate_uniqueness: true)
   end 
 
   def self.to_csv

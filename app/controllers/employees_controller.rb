@@ -13,7 +13,11 @@ class EmployeesController < ApplicationController
 
   def import
     begin
-      Employee.from_csv(params[:file])
+      if Employee.from_csv(params[:file]).failed_instances.empty? 
+        flash[:notice] = "Employees imported successfully"
+      else 
+        flash[:alert] = "There is a problem with one or more records of your csv file"
+      end
     rescue => e
       puts e.message
       flash[:alert] = "There was a problem with your file or your file records."
